@@ -12,4 +12,9 @@ public class DepartamentoController {
     public String cadastrar() {
         return "/departamento/cadastro";
     }
+
+    @GetMapping("/listar")
+    public String listar(){
+        return"/departamento/lista";
+    }
 }
