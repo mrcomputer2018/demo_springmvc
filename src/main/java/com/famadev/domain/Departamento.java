@@ -13,7 +13,7 @@ public class Departamento extends AbstractEntity<Long>{
     private String nome;
 
     // Muitos cargos para um departamento
-    // mappedBy - definindo quemee o um da relacao ou lado forte
+    // mappedBy - definindo quem e o um da relacao ou lado fraco
     @OneToMany(mappedBy = "departamento")
     private List<Cargo> cargos;
 
