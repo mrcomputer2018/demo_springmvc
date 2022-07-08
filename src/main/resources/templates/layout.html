@@ -25,15 +25,15 @@
             </div>
         </header>
 
-        <div>
+        <div class="layout-main">
             <aside>
-                <nav>
+                <nav th:replace="fragments/sidebar :: nav-sidebar">
                     <span>Menu</span>
                 </nav>
             </aside>
 
             <!-- Conteudo principal -->
-            <section>
+            <section layout:fragment="corpo">
                 <div>Conteudo das paginas</div>
             </section>
         </div>
