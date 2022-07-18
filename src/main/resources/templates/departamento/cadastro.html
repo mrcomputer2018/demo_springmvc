@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	 			 xmlns:th="http://www.thymeleaf.org"
 				  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 				  layout:decorate="~{layout}">
 <head>
@@ -25,12 +26,13 @@
 	        </nav>
 	
 	        <div class="container" id="cadastro">
-	            <form action="/departamentos/salvar" method="POST">
+	            <form th:action="@{/departamentos/salvar}" th:object="${departamento}" method="POST">
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nome">Departamento</label>
 	                        <input type="text" class="form-control" id="nome"
-	                               placeholder="Nome Departamento" autofocus="autofocus" name="nome" value=""/>
+	                               placeholder="Nome Departamento" autofocus="autofocus"
+							th:field="*{nome}"/>
 	                    </div>
 	                </div>
 	                <input type="hidden" id="id" name="id" value=""/>
