@@ -51,6 +51,17 @@
         <script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="../static/js/bootstrap.min.js"  th:src="@{/js/bootstrap.min.js}"></script>
         <script type="text/javascript">
+            var url = '';
+            // recuperar o valor da url
+            $('button[id*="btn_"]').click(function() {
+                url = "http://localhost:8080/" + $(this).attr('id').split("_")[1];
+            });
+            // Passando a url para o botao de comfirmacao do modal
+            $('#ok_confirm').click(function() {
+                // Fazendo a solicitacao para o servidor
+                document.location.href = url;
+            });
+
             $(function() {
                 $('[data-toggle="popover"]').popover();
             });
