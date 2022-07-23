@@ -26,6 +26,10 @@
 	        </nav>
 	
 	        <div class="container" id="cadastro">
+				<!--Mensagens -->
+				<div th:replace="fragments/alert"></div>
+
+				<!-- formulario de cadastro -->
 	            <form th:action="@{/cargos/salvar}" th:object="${cargo}" method="POST">
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
