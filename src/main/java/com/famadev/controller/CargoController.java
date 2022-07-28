@@ -33,6 +33,7 @@ public class CargoController {
 
     @GetMapping("/listar")
     public String listar(ModelMap model) {
+        // enviando Cargos para pagina
         model.addAttribute("cargos", cargoService.buscarTodos());
         return "/cargo/lista";
     }
