@@ -51,14 +51,14 @@ public class CargoController {
 
     @PostMapping("/editar")
     public String editar(Cargo cargo, RedirectAttributes attr) {
-        cargoService.salvar(cargo);
+        cargoService.editar(cargo);
         attr.addFlashAttribute("success", "Cargo editado com sucesso.");
         return "redirect:/cargos/cadastrar";
     }
 
     @GetMapping("/excluir/{id}")
     public String excluir(@PathVariable("id") Long id, ModelMap model){
-        if (cargoService.cargosTemFuncionarios(id)) {
+        if (cargoService.cargoTemFuncionarios(id)) {
             model.addAttribute("fail", "Cargo não foi removido. A funcionario(s) vinculados");
         }
         else {
