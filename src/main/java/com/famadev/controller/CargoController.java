@@ -56,6 +56,20 @@ public class CargoController {
         return "redirect:/cargos/cadastrar";
     }
 
+    @GetMapping("/excluir/{id}")
+    public String excluir(@PathVariable("id") Long id, ModelMap model){
+        if (cargoService.cargosTemFuncionarios(id)) {
+            model.addAttribute("fail", "Cargo não foi removido. A funcionario(s) vinculados");
+        }
+        else {
+            cargoService.excluir(id);
+            model.addAttribute("success", "Cargo excluido com sucesso.");
+        }
+        // Retorno chamando o metodo listar
+        // pode fazer um redirect para /departamentos/listar
+        return listar(model);
+    }
+
     // enviando lista de departamentos para pagina de cadastro
     @ModelAttribute("departamentos")
     public List<Departamento> listaDeDepartamentos(){
