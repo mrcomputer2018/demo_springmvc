@@ -1,6 +1,8 @@
 package com.famadev.domain;
 
 import org.hibernate.engine.internal.Cascade;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -15,14 +17,19 @@ public class Funcionario extends AbstractEntity<Long>{
     private String nome;
 
     // columnDefinition - Define o tipo de dado que vamos ter no banco de dados
+    // @NumberFormat - para converter oo dado salario
+    @NumberFormat(style = NumberFormat.Style.CURRENCY, pattern = "#,##0.00")
     @Column(name = "salario", nullable = false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
     private BigDecimal salario;
 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "data_entrada", nullable = false, columnDefinition = "DATE")
     private LocalDate dataEntrada;
 
 
     // Data Saida - nao pode ser obrigatorio
+   // @DateTimeFormat - converte a data para o formato certo
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "data_saida", columnDefinition = "DATE")
     private LocalDate dataSaida;
 
