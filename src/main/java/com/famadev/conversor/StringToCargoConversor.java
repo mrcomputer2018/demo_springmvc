@@ -10,7 +10,6 @@ public class StringToCargoConversor implements Converter<String, Cargo> {
     @Autowired
     private CargoService service;
 
-
     @Override
     public Cargo convert(String text) {
         if (text.isEmpty()){
