@@ -139,7 +139,7 @@
 								<td th:text="${#temporals.format(f.dataEntrada, 'dd/MM/yyyy')}">01/10/2014</td>
 								<td  th:text="${#temporals.format(f.dataSaida, 'dd/MM/yyyy')}"></td>
 								<td colspan="2">
-									<a class="btn btn-info btn-sm" th:href="${/funcionarios/editar/{id} (id=${f.id})" role="button">
+									<a class="btn btn-info btn-sm" th:href="@{/funcionarios/editar/{id} (id = ${f.id})}" role="button">
 										<span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
 									</a>
 									<button th:id="${#strings.concat('btn_funcionarios/excluir/', f.id)}" type="button" class="btn btn-danger btn-sm"
