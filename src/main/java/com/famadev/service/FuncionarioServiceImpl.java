@@ -41,4 +41,10 @@ public class FuncionarioServiceImpl implements FuncionarioService{
     public List<Funcionario> buscarTodos() {
         return dao.findAll();
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Funcionario> buscarPorNome(String nome) {
+        return dao.findByNome(nome);
+    }
 }
