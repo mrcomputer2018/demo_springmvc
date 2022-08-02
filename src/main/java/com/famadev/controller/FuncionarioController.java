@@ -6,11 +6,13 @@ import com.famadev.domain.UF;
 import com.famadev.service.CargoService;
 import com.famadev.service.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -70,6 +72,14 @@ public class FuncionarioController {
     @GetMapping("/buscar/cargo")
     public String getPorCargo(@RequestParam("id") Long id, ModelMap model) {
         model.addAttribute("funcionarios", funcionarioService.buscarPorCargo(id));
+        return "/funcionario/lista";
+    }
+
+    @GetMapping("/buscar/data")
+    public String getPorDatas(@RequestParam(name = "entrada", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate entrada,
+                              @RequestParam(name = "saida", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate saida,
+                              ModelMap model) {
+        model.addAttribute("funcionarios", funcionarioService.buscarPorDatas(entrada, saida));
         return "/funcionario/lista";
     }
 
