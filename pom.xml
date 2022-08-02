@@ -80,6 +80,11 @@
 			<artifactId>jquery-mask-plugin</artifactId>
 			<version>1.14.13</version>
 		</dependency>
+		<!-- Validacao backend -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
