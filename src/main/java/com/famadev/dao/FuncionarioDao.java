@@ -18,4 +18,6 @@ public interface FuncionarioDao {
     List<Funcionario> findAll();
 
     List<Funcionario> findByNome(String nome);
+
+    List<Funcionario> findByCargoId(Long id);
 }
