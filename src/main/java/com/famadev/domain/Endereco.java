@@ -36,7 +36,7 @@ public class Endereco  extends AbstractEntity<Long>{
     @Column(name = "cep", nullable = false, length = 9)
     private String cep;
 
-    @NotNull(message = "{otNull.endereco.numero}")
+    @NotNull(message = "{NotNull.endereco.numero}")
     @Digits(integer = 5, fraction = 0)
     @Column(name = "numero", nullable = false, length = 5)
     private Integer numero;
