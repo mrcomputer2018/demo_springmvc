@@ -51,11 +51,13 @@ public class FuncionarioServiceImpl implements FuncionarioService{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Funcionario> buscarPorCargo(Long id) {
         return dao.findByCargoId(id);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Funcionario> buscarPorDatas(LocalDate entrada, LocalDate saida) {
         if (entrada != null && saida != null) {
             return dao.findByDataEntradaDataSaida(entrada, saida);
